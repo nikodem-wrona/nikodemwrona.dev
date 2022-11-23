@@ -10,6 +10,7 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     font-size: 10px;
     font-family: 'Roboto Mono', monospace;
+    letter-spacing: .1rem;
   }
 
   a {
