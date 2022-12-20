@@ -1,42 +1,68 @@
 import { FC } from 'react'
-import { ModuleWrapper, HighlightedBrandText, Button, scrollToModule } from '../../_shared'
-import { HomeContentWrapper, HomeContent, HomeContentRow, HomeFirstRowText, HomeSecondRowText, HomeThirdRowText, HomeFourthRowText, HomeFifthRowText } from './Home.styles'
+import {
+  GithubIcon,
+  LinkedInIcon,
+  TwitterIcon,
+  MailIcon,
+  Header,
+  HomeInnerWrapper,
+  HomeWrapper,
+  LinksList,
+  LinksListItem,
+  IconLink
+} from './Home.styles'
 
-export const Home: FC = () => {
+type IconNames = 'Github' | 'Linkedin' | 'Twitter' | 'Mail';
+
+const renderIcon = (name: IconNames) => {
+  switch (name) {
+    case 'Github': {
+      return <GithubIcon />
+    }
+    case 'Linkedin': {
+      return <LinkedInIcon />
+    }
+    case 'Twitter' : {
+      return <TwitterIcon />
+    }
+    case 'Mail': {
+      return <MailIcon />
+    }
+  }
+}
+
+const renderLink = (iconName: IconNames, link: string, isMailLink?: boolean): JSX.Element => {
+  if (isMailLink) {
+    return (
+      <IconLink href={`mailto:${link}`} rel={"noopener noreferer"} target={'_blank'}>
+        {renderIcon(iconName)}
+      </IconLink>
+    )
+  }
+
   return (
-    <ModuleWrapper id={'home-module'} color={'primary'}>
-      <HomeContentWrapper>
-        <HomeContent>
-          <HomeContentRow>
-            <HomeFirstRowText>
-              Hi, my name is
-            </HomeFirstRowText>
-          </HomeContentRow>
-          <HomeContentRow>
-            <HomeSecondRowText>
-              Nikodem Wrona.
-            </HomeSecondRowText>
-          </HomeContentRow>
-          <HomeContentRow>
-            <HomeThirdRowText>
-              I create software.
-            </HomeThirdRowText>
-          </HomeContentRow>
-          <HomeContentRow>
-            <HomeFourthRowText>
-              {"I\'m"} <HighlightedBrandText>software engineer</HighlightedBrandText> specializing in {" "}<HighlightedBrandText>backend development</HighlightedBrandText> ( but I do like frontend as well ).
-              <br/>
-              <br/>
-              Currently {" I\'m "} <HighlightedBrandText>open</HighlightedBrandText> for new opportunities.
-            </HomeFourthRowText>
-          </HomeContentRow>
-          <HomeContentRow>
-            <HomeFifthRowText>
-              <Button onClick={() => scrollToModule('about')} text="More about me" />
-            </HomeFifthRowText>
-          </HomeContentRow>
-        </HomeContent>
-      </HomeContentWrapper>
-    </ModuleWrapper>
+    <IconLink href={link} rel={"noopener noreferer"} target={'_blank'}>
+      {renderIcon(iconName)}
+    </IconLink>
+  )
+}
+
+export const HomeComponent: FC = () => {
+  return (
+    <HomeWrapper>
+      <HomeInnerWrapper>
+        <Header>
+          Hi, places where you can find me
+        </Header>
+        <LinksList>
+          <LinksListItem>
+            {renderLink('Github', 'https://github.com/nikodem-wrona')}
+            {renderLink('Linkedin', 'https://www.linkedin.com/in/nikodem-wrona/')}
+            {renderLink('Twitter', 'https://twitter.com/nikodemwrona')}
+            {renderLink('Mail', 'wronanikodem@gmail.com', true)}
+          </LinksListItem>
+        </LinksList>
+      </HomeInnerWrapper>
+    </HomeWrapper>
   )
 }

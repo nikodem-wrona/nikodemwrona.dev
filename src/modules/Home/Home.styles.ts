@@ -1,52 +1,66 @@
-import styled from 'styled-components'
+import { styled } from '@/styles/globalStyles'
+import { FiGithub, FiLinkedin, FiTwitter, FiMail } from 'react-icons/fi';
 
-export const HomeContentWrapper = styled.div`
-  width: 100%;
-  display: flex;
-  justify-content: center;  
-`;
+export const HomeWrapper = styled('div', {
+  height: '100vh',
+  width: '100%',
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  backgroundColor: '$backgroundPrimary'
+});
 
-export const HomeContent = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 85%;
+export const HomeInnerWrapper = styled('div', {
+  display: 'flex',
+  flexDirection: 'column',
+});
 
-  @media (max-width: 1200px) {
-    width: 100%;
+export const Header = styled('h1', {
+  color: '$textPrimary',
+  padding: '$large',
+  fontSize: '$font18'
+});
+
+export const LinksList = styled('div', {
+  display: 'flex',
+});
+
+export const LinksListItem = styled('div', {
+  display: 'flex',
+  justifyContent: 'space-between',
+  width: '100%',
+  color: '$textPrimary',
+  padding: '$medium',
+});
+
+const sharedIconStyles = {
+  height: '35px',
+  width: '35px',
+  transition: 'transform .3s ease',
+  '&:hover': {
+    cursor: 'pointer',
+    transform: 'translateY(-5px)',
   }
-`;
+}
 
-export const HomeContentRow = styled.div`
-  display: flex;
-`;
+export const IconLink = styled('a', {
+  textDecoration: 'none',
+  color: 'inherit',
+  outline: 'none',
+});
 
-export const HomeFirstRowText = styled.span`
-  font-size: 2rem;
-  color: ${({theme}) => theme.colors.text.brand};
-`;
+export const GithubIcon = styled(FiGithub, {
+  ...sharedIconStyles,
+});
 
-export const HomeSecondRowText = styled.span`
-  font-size: 8rem;
-  font-weight: bold;
-`;
+export const LinkedInIcon = styled(FiLinkedin, {
+  ...sharedIconStyles,
+});
 
-export const HomeThirdRowText = styled.span`
-  font-size: 5rem;
-  font-weight: bold;
-  color: ${({theme}) => theme.colors.text.faded};
-  margin-bottom: 3rem;
-`;
+export const TwitterIcon = styled(FiTwitter, {
+  ...sharedIconStyles,
+});
 
-export const HomeFourthRowText = styled.span`
-  line-height: 3rem;
-  font-size: 2rem;
-  width: 75%;
-  color: ${({theme}) => theme.colors.text.faded};
-  @media (max-width: 1200px) {
-    width: 100%;
-  }
-`;
-
-export const HomeFifthRowText = styled.span`
-  margin-top: 5rem;
-`;
+export const MailIcon = styled(FiMail, {
+  ...sharedIconStyles,
+});
