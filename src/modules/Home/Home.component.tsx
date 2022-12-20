@@ -52,7 +52,7 @@ export const HomeComponent: FC = () => {
     <HomeWrapper>
       <HomeInnerWrapper>
         <Header>
-          Hi, places where you can find me
+          Hi! Here are places where you can find me
         </Header>
         <LinksList>
           <LinksListItem>

@@ -15,7 +15,7 @@ export const HomeInnerWrapper = styled('div', {
   flexDirection: 'column',
 });
 
-export const Header = styled('h1', {
+export const Header = styled('span', {
   color: '$textPrimary',
   padding: '$large',
   fontSize: '$font18'

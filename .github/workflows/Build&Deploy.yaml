@@ -21,3 +21,15 @@ jobs:
       - name: Push nikodemwrona.dev Docker image
         run: |
           docker push "ghcr.io/nikodem-wrona/nikodemwrona.dev/nikodemwrona.dev:latest"
+
+      - name: Deploy
+        uses: steebchen/kubectl@v2.0.0
+        with:
+          config: ${{ secrets.KUBECONFIG }}
+          command: rollout restart deployment nikodemwrona-dev -n nikodemwrona-dev
+
+      - name: Verify deployment
+        uses: steebchen/kubectl@v2.0.0
+        with:
+          config: ${{ secrets.KUBECONFIG }}
+          command: rollout status deployment nikodemwrona-dev -n nikodemwrona-dev
