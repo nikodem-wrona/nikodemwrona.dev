@@ -14,7 +14,7 @@ spec:
         component: nikodemwrona-dev
     spec:
       containers:
-        - name: api
+        - name: nikodemwrona-dev
           image: ghcr.io/nikodem-wrona/nikodemwrona.dev/nikodemwrona.dev:latest
           imagePullPolicy: Always
           ports:
