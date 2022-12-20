@@ -17,6 +17,6 @@ jobs:
       - name: Build nikodemwrona.dev Docker image
         run: |
           docker build --tag "ghcr.io/nikodem-wrona/nikodemwrona.dev/nikodemwrona.dev:latest" .
-      - name: Push nikodemwrona.dev  Docker image
+      - name: Push nikodemwrona.dev Docker image
         run: |
           docker push "ghcr.io/nikodem-wrona/nikodemwrona.dev/nikodemwrona.dev:latest"
