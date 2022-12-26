@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import { styled } from '@/styles/globalStyles'
 import { FiGithub, FiLinkedin, FiTwitter, FiMail } from 'react-icons/fi';
 
@@ -18,7 +19,16 @@ export const HomeInnerWrapper = styled('div', {
 export const Header = styled('span', {
   color: '$textPrimary',
   padding: '$large',
-  fontSize: '$font18'
+  fontSize: '$font18',
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'flex-end'
+});
+
+export const HomeImageOne = styled(Image, {
+  '@media(max-width: 500px)': {
+    display: 'none',
+  }
 });
 
 export const LinksList = styled('div', {

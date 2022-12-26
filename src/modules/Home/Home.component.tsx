@@ -9,8 +9,12 @@ import {
   HomeWrapper,
   LinksList,
   LinksListItem,
-  IconLink
+  IconLink, HomeImageOne
 } from './Home.styles'
+import Image from 'next/image'
+import CreatureOne from '../../../public/images/image4.png'
+import CreatureTwo from '../../../public/images/image2.png'
+import { Topbar } from '@/_shared/components'
 
 type IconNames = 'Github' | 'Linkedin' | 'Twitter' | 'Mail';
 
@@ -50,7 +54,12 @@ const renderLink = (iconName: IconNames, link: string, isMailLink?: boolean): JS
 export const HomeComponent: FC = () => {
   return (
     <HomeWrapper>
+      <Topbar />
       <HomeInnerWrapper>
+        <Header>
+          <Image height={320} width={220} src={CreatureTwo} alt={'Hello!'} />
+          <HomeImageOne height={220} width={220} src={CreatureOne} alt={'Hello!'} />
+        </Header>
         <Header>
           Hi! Here are places where you can find me
         </Header>

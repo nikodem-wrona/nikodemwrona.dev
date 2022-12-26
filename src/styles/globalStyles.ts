@@ -4,8 +4,8 @@ export const { styled, css, getCssText, createTheme, keyframes, globalCss } =
   createStitches({
     theme: {
       colors: {
-        backgroundPrimary: '#000',
-        textPrimary: '#fff',
+        backgroundPrimary: '#fff',
+        textPrimary: '#000',
       },
       space: {
         extraSmall: '0.4rem',
