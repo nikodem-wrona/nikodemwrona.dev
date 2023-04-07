@@ -8,6 +8,7 @@ metadata:
     cert-manager.io/cluster-issuer: 'letsencrypt-prod'
     nginx.ingress.kubernetes.io/use-regex: 'true'
     nginx.ingress.kubernetes.io/ssl-redirect: 'true'
+    nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   tls:
     - hosts:
@@ -17,7 +18,7 @@ spec:
     - host: nikodemwrona.dev
       http:
         paths:
-          - path: /*
+          - path: /
             pathType: Exact
             backend:
               service:
