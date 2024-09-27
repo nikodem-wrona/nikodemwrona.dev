@@ -18,6 +18,7 @@ spec:
       containers:
       - name: nikodemwrona-dev
         image: ghcr.io/nikodem-wrona/nikodemwrona.dev/nikodemwrona.dev:latest
+        imagePullPolicy: Always
         ports:
         - containerPort: 80
         resources:
