@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: nikodemwrona-dev
+  namespace: website
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  ingressClassName: nginx
+  tls:
+  - hosts:
+     - nikodemwrona.dev
+    secretName: ssl-cert-production
+  rules:
+  - host: nikodemwrona.dev
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: nikodemwrona-dev
+            port:
+              number: 80
