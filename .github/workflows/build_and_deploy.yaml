@@ -23,10 +23,10 @@ jobs:
       #       docker push "ghcr.io/nikodem-wrona/nikodemwrona.dev/nikodemwrona.dev:latest"
 
       - name: Set up kubectl
-        uses: azure/setup-kubectl@v3
+        uses: azure/setup-kubectl@v1
 
       - name: Deploy to Kubernetes
         run: |
           kubectl rollout restart deployment/nikodemwrona-dev -n website
         env:
-          KUBECONFIG: ${{ secrets.KUBECONFIG }}
+          KUBECONFIG: ${{secrets.KUBECONFIG}}
