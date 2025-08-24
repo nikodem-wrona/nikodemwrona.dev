@@ -1,0 +1,12 @@
+name: nikodemwrona.dev
+services:
+  website:
+    build:
+      context: .
+      dockerfile: website/Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+    restart: unless-stopped
+    container_name: website
