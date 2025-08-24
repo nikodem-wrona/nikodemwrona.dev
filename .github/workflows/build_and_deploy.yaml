@@ -1,11 +1,11 @@
-name: Build & Deploy
+name: build_and_deploy
 on:
   push:
     branches:
       - master
 
 jobs:
-  buildAndPush:
+  build_and_push:
     runs-on: ubuntu-latest
 
     steps:
@@ -16,7 +16,7 @@ jobs:
 
       - name: Build nikodemwrona.dev Docker image
         run: |
-          docker build --tag "ghcr.io/nikodem-wrona/nikodemwrona.dev/nikodemwrona.dev:latest" .
+          docker build --tag "ghcr.io/nikodem-wrona/nikodemwrona.dev/nikodemwrona.dev:latest" -f website/Dockerfile .
 
       - name: Push nikodemwrona.dev Docker image
         run: |
