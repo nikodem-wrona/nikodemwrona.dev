@@ -11,19 +11,19 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Docker login
-        run: docker login ghcr.io -u $GITHUB_ACTOR --password ${{ secrets.GITHUB_TOKEN }}
+      #   - name: Docker login
+      #     run: docker login ghcr.io -u $GITHUB_ACTOR --password ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Build nikodemwrona.dev Docker image
-        run: |
-          docker build --tag "ghcr.io/nikodem-wrona/nikodemwrona.dev/nikodemwrona.dev:latest" -f website/Dockerfile .
+      #   - name: Build nikodemwrona.dev Docker image
+      #     run: |
+      #       docker build --tag "ghcr.io/nikodem-wrona/nikodemwrona.dev/nikodemwrona.dev:latest" -f website/Dockerfile .
 
-      - name: Push nikodemwrona.dev Docker image
-        run: |
-          docker push "ghcr.io/nikodem-wrona/nikodemwrona.dev/nikodemwrona.dev:latest"
+      #   - name: Push nikodemwrona.dev Docker image
+      #     run: |
+      #       docker push "ghcr.io/nikodem-wrona/nikodemwrona.dev/nikodemwrona.dev:latest"
 
       - name: Set up kubectl
-        uses: azure/setup-kubectl@v4
+        uses: azure/setup-kubectl@v3
 
       - name: Deploy to Kubernetes
         run: |
