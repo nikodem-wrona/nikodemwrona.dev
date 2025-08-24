@@ -23,9 +23,7 @@ jobs:
           docker push "ghcr.io/nikodem-wrona/nikodemwrona.dev/nikodemwrona.dev:latest"
 
       - name: Set up kubectl
-        uses: azure/setup-kubectl@v1
-        with:
-          version: "v1.31.1"
+        uses: azure/setup-kubectl@v4
 
       - name: Deploy to Kubernetes
         run: |
