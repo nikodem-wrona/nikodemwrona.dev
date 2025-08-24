@@ -29,4 +29,4 @@ jobs:
         run: |
           kubectl rollout restart deployment/nikodemwrona-dev -n website
         env:
-          KUBECONFIG: ${{secrets.KUBECONFIG}}
+          KUBECONFIG: ${{vars.KUBECONFIG}}
